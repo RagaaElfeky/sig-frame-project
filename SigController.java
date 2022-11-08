@@ -69,11 +69,11 @@ private  InvoiceTableDialog invoiceDialog;
              case "Delet Invoice":
                  deletInvoice();
                  break;
-             case "Save":
+             case "Creat Item":
                  newItem();
                  break;
-             case "Cancel":
-                 cancelItem();
+             case "Delete Item":
+                 deleteItem();
                  break;
              case "Load File" :
                  loadFile(null,null);
@@ -168,7 +168,7 @@ private  InvoiceTableDialog invoiceDialog;
 
     
     
-    private void cancelItem() {
+    private void deleteItem() {
       int selectedInvoice = Frame.getInvTable().getSelectedRow();
          int selectedItem = Frame.getItemTable().getSelectedRow();
          if (selectedInvoice !=-1 && selectedItem !=-1){

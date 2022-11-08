@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package efwd.model;
-
+import efwd.view.SigFrame;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,6 +15,8 @@ import javax.swing.table.AbstractTableModel;
 public class ItemTableModel extends AbstractTableModel {
      private ArrayList<ItemTable>items;
      private String []columns={"Item Name","Price","Count","Item Total"};
+     
+     
     public ItemTableModel() {
          this(new ArrayList<ItemTable>());
     }

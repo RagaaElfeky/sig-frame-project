@@ -7,7 +7,7 @@ package efwd.view;
 
 import efwd.model.InvoiceTable;
 import efwd.model.InvoiceTableModel;
-import efwd.model.ItemTable;
+
 import efwd.model.ItemTableModel;
 import efwd.controller.SigController;
 import java.text.SimpleDateFormat;
@@ -43,7 +43,6 @@ public class SigFrame extends javax.swing.JFrame {
         invTable.getSelectionModel().addListSelectionListener(controller);
         jScrollPane2 = new javax.swing.JScrollPane();
         itemTable = new javax.swing.JTable();
-        itemTable.getSelectionModel().addListSelectionListener(controller);
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -56,10 +55,10 @@ public class SigFrame extends javax.swing.JFrame {
         newInvoiceBtn.addActionListener(controller);
         deletInvoiceBtn = new javax.swing.JButton();
         deletInvoiceBtn.addActionListener(controller);
-        saveBtn = new javax.swing.JButton();
-        saveBtn.addActionListener(controller);
-        cancelBtn = new javax.swing.JButton();
-        cancelBtn.addActionListener(controller);
+        creatItemBtn = new javax.swing.JButton();
+        creatItemBtn.addActionListener(controller);
+        deleteItemBtn = new javax.swing.JButton();
+        deleteItemBtn.addActionListener(controller);
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         loadFile = new javax.swing.JMenuItem();
@@ -92,17 +91,17 @@ public class SigFrame extends javax.swing.JFrame {
 
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                " No", "Item Name", "Price", "Count", "Item Total"
+                "Item Name", "Price", "Count", "Item Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -126,24 +125,14 @@ public class SigFrame extends javax.swing.JFrame {
         newInvoiceBtn.setText("Creat New Invoice");
 
         deletInvoiceBtn.setText("Delet Invoice");
-        deletInvoiceBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletInvoiceBtnActionPerformed(evt);
-            }
-        });
 
-        saveBtn.setText("Save");
+        creatItemBtn.setText("Creat Item");
 
-        cancelBtn.setText("Cancel");
+        deleteItemBtn.setText("Delete Item");
 
         jMenuFile.setText("File");
 
         loadFile.setText("Load File");
-        loadFile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadFileActionPerformed(evt);
-            }
-        });
         jMenuFile.add(loadFile);
 
         saveFile.setText("Save File");
@@ -194,9 +183,9 @@ public class SigFrame extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(deletInvoiceBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(saveBtn)
+                        .addComponent(creatItemBtn)
                         .addGap(63, 63, 63)
-                        .addComponent(cancelBtn)
+                        .addComponent(deleteItemBtn)
                         .addGap(42, 42, 42))))
         );
         layout.setVerticalGroup(
@@ -227,21 +216,13 @@ public class SigFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newInvoiceBtn)
                     .addComponent(deletInvoiceBtn)
-                    .addComponent(saveBtn)
-                    .addComponent(cancelBtn))
+                    .addComponent(creatItemBtn)
+                    .addComponent(deleteItemBtn))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loadFileActionPerformed
-
-    private void deletInvoiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletInvoiceBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deletInvoiceBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,9 +263,10 @@ public class SigFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelBtn;
+    private javax.swing.JButton creatItemBtn;
     private javax.swing.JTextField custNameTxf;
     private javax.swing.JButton deletInvoiceBtn;
+    private javax.swing.JButton deleteItemBtn;
     private javax.swing.JTextField invDateTxf;
     private javax.swing.JLabel invNoLbl;
     private javax.swing.JTable invTable;
@@ -300,7 +282,6 @@ public class SigFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenuItem loadFile;
     private javax.swing.JButton newInvoiceBtn;
-    private javax.swing.JButton saveBtn;
     private javax.swing.JMenuItem saveFile;
     // End of variables declaration//GEN-END:variables
 public static SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
@@ -329,7 +310,8 @@ public ArrayList<InvoiceTable> getInvoiceis() {
      if (invoiceis==null)
          invoiceis=new ArrayList<>();
      return invoiceis;
- }
+
+}
     public SigController getController() {
         return controller;
     }
@@ -343,6 +325,16 @@ public ArrayList<InvoiceTable> getInvoiceis() {
         
         return custNameTxf;
     }
+
+    public void setCustNameTxf(JTextField custNameTxf) {
+        this.custNameTxf = custNameTxf;
+    }
+
+    public void setInvDateTxf(JTextField invDateTxf) {
+        this.invDateTxf = invDateTxf;
+    }
+    
+    
      
 
     public JTextField getInvDateTxf() {
@@ -365,9 +357,7 @@ public ArrayList<InvoiceTable> getInvoiceis() {
         return invTable ;
     }
 
-    public InvoiceTableModel getInvoices() {
-        return invoiceTableModel ; //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
     public InvoiceTable getInvoiceByNo(int no) {
         //InvoiceTable inv =null;

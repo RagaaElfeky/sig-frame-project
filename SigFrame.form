@@ -13,9 +13,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Load File"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadFileActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="loadFile.addActionListener(controller);&#xd;&#xa;"/>
               </AuxValues>
@@ -103,9 +100,9 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="deletInvoiceBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="creatItemBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Component id="cancelBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="deleteItemBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -146,8 +143,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="newInvoiceBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deletInvoiceBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="saveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="creatItemBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deleteItemBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
@@ -210,10 +207,9 @@
         <Component class="javax.swing.JTable" name="itemTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="4">
-                <Column editable="true" title=" No" type="java.lang.Integer"/>
+              <Table columnCount="4" rowCount="4">
                 <Column editable="true" title="Item Name" type="java.lang.String"/>
-                <Column editable="true" title="Price" type="java.lang.Double"/>
+                <Column editable="true" title="Price" type="java.lang.Integer"/>
                 <Column editable="true" title="Count" type="java.lang.Integer"/>
                 <Column editable="true" title="Item Total" type="java.lang.Double"/>
               </Table>
@@ -240,20 +236,12 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
               </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="itemTable.getSelectionModel().addListSelectionListener(controller);"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -303,27 +291,24 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Delet Invoice"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletInvoiceBtnActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deletInvoiceBtn.addActionListener(controller);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="saveBtn">
+    <Component class="javax.swing.JButton" name="creatItemBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="text" type="java.lang.String" value="Creat Item"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="saveBtn.addActionListener(controller);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="creatItemBtn.addActionListener(controller);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="cancelBtn">
+    <Component class="javax.swing.JButton" name="deleteItemBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="Delete Item"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="cancelBtn.addActionListener(controller);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteItemBtn.addActionListener(controller);"/>
       </AuxValues>
     </Component>
   </SubComponents>
